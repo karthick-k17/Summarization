@@ -1,0 +1,11 @@
+chromadb
+streamlit
+streamlit-option-menu
+langchain_text_splitters
+langchain_google_genai
+langchain_community
+langchain_chroma
+qdrant_client
+google.generativeai
+PyPDF2
+python-dotenv
