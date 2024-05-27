@@ -1,0 +1,34 @@
+## 2024 Data Breach Investigations Report (DBIR) Summary:
+
+This report, the 17th edition, analyzes 30,458 security incidents and 10,626 confirmed data breaches from November 1, 2022, to October 31, 2023. 
+
+**Key Findings:**
+
+* **Vulnerability Exploitation on the Rise:** Exploitation of vulnerabilities is the primary path to breaches, nearly tripling from the previous year. This is largely driven by ransomware and extortion attacks, primarily targeting web applications.
+* **Ransomware and Extortion Dominate:** Ransomware and extortion tactics account for roughly one-third of all breaches, with pure extortion attacks increasing significantly. 
+* **Human Element Remains Critical:** The human element is a factor in 68% of breaches, emphasizing the importance of security awareness training.
+* **Third-Party Risks Growing:** Breaches involving third parties, including partner infrastructure and software supply chain issues, have increased by 68%.
+* **Errors More Prevalent Than Expected:** Errors, primarily misdelivery, account for 28% of breaches, highlighting the need for robust error-catching controls.
+* **Internal Actors on the Rise:** Internal actors are responsible for 35% of breaches, largely due to errors, but also malicious insider activity.
+* **Financial Motivation Remains Dominant:** Financial motives drive the majority of cybercrime, but espionage is increasing, particularly in public administration breaches.
+* **GenAI Threat Still Unclear:** While GenAI is a hot topic, its impact on cybercrime remains unclear. 
+* **Ransomware Still a Major Threat:** Ransomware remains a top threat across 92% of industries, with a median adjusted loss of $46,000 for those who pay.
+* **Patching Lags Behind Exploitation:** It takes an average of 55 days to remediate 50% of critical vulnerabilities in the CISA KEV catalog, highlighting the need for faster patching.
+* **Credentials Remain a Primary Target:** Stolen credentials are involved in 31% of breaches, emphasizing the importance of strong password policies and multi-factor authentication.
+* **Pretexting Surpasses Phishing:** Pretexting, often used in BEC attacks, is now a more common social engineering tactic than phishing.
+* **Denial of Service Attacks Persistent:** Denial of Service attacks remain the most common incident type, with a median attack size of 1.6 Gbps.
+* **Lost Devices Still a Concern:** Lost devices, primarily laptops, are more common than stolen devices, highlighting the need for data encryption and remote wipe capabilities.  
+* **Employee Betrayal a Significant Threat:** Malicious insiders are responsible for 8% of breaches, emphasizing the importance of employee screening and access control.
+
+**Key Recommendations:**
+
+* **Prioritize Vulnerability Management:** Implement robust vulnerability management processes, including rapid patching of critical vulnerabilities.
+* **Strengthen Third-Party Security:** Carefully vet third-party vendors and partners, ensuring they have strong security practices.
+* **Invest in Security Awareness Training:** Train employees on phishing, pretexting, and other social engineering tactics, as well as basic security best practices.
+* **Implement Multi-Factor Authentication:** Use MFA for all sensitive accounts, especially those exposed to the internet.
+* **Protect Data at Rest and in Transit:** Encrypt data on devices, removable media, and during transmission.
+* **Control Access and Privileges:** Implement strong access control policies and restrict administrator privileges.
+* **Monitor for Anomalies:** Use security monitoring tools to detect unusual activity and potential breaches.
+* **Develop Incident Response Plans:**  Ensure your organization has a comprehensive incident response plan in place.
+
+**Overall, the report highlights the ever-evolving nature of cybercrime and the need for organizations to be proactive in protecting their data and systems.**

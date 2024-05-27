@@ -1,0 +1,45 @@
+Chapter 1: Page 5 - 10
+Introduction: Page 5 - 6
+Helpful guidance: Page 6 - 7
+Summary of findings: Page 7 - 10
+                               Chapter 2: Page 11 - 27
+Results and analysis:Introduction: Page 11 - 14
+VERIS Actors: Page 15 - 17
+VERIS Actions: Page 18 - 22
+VERIS Assets: Page 23 - 24
+VERIS Attributes: Page 25 - 27
+                               Chapter 3: Page 28 - 55
+Incident Classification Patterns: Page 28 - 30
+Incident Classification Patterns: Introduction: Page 28 - 29
+System Intrusion: Page 30 - 32
+Social Engineering: Page 32 - 36
+Basic Web Application Attacks: Page 36 - 42
+Miscellaneous Errors: Page 42 - 47
+Denial of Service: Page 47 - 49
+Lost and Stolen Assets: Page 49 - 51
+Privilege Misuse: Page 51 - 53
+                               Chapter 4: Page 56 - 74
+Industries: Page 56 - 60
+Industries: Introduction: Page 56 - 57
+Accommodation and Food Services: Page 57 - 60
+Educational Services: Page 60 - 61
+Financial and Insurance: Page 61 - 64
+Healthcare: Page 64 - 66
+Information: Page 66 - 67
+Manufacturing: Page 67 - 69
+Professional, Scientific and Technical Services: Page 69 - 70
+Public Administration: Page 70 - 72
+Retail: Page 72 - 74
+                               Chapter 5: Page 75 - 80
+Regions: Page 75 - 75
+Regional analysis: Page 75 - 80
+                               Chapter 6: Page 81 - 81
+Wrap-up: Page 81 - 81
+Year in review: Page 81 - 81
+                               Chapter 7: Page 86 - 98
+Appendices: Page 86 - 98
+Appendix A: How to read this report: Page 86 - 88
+Appendix B: Methodology: Page 88 - 92
+Appendix C: U.S. Secret Service Community Database (VCDB): Page 92 - 94
+Appendix D: Using the VERIS to Estimate Risk: Page 94 - 96
+Appendix E: Contributing organizations: Page 96 - 98
