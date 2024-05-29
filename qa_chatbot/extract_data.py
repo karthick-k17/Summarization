@@ -11,7 +11,7 @@ import dotenv
 import os
 
 def create_embeddings(file_path):
-    file_name = file_path.split('/')[-1]
+    file_name = file_path.name
     print(file_name)
 
     client = chromadb.PersistentClient(path="./chroma_db")
