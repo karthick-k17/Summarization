@@ -21,9 +21,9 @@ def search(query, file_name):
     # )
 
     db = Chroma(
-         persist_directory="./chroma_db", 
-         embedding_function=embeddings,
-         collection_name=f"{file_name}"
+            persist_directory="./chroma_db", 
+            embedding_function=embeddings,
+            collection_name=f"{file_name}"
     )
 
     retriever = db.as_retriever()
@@ -35,20 +35,20 @@ def search(query, file_name):
     #)
 
     # found_docs = qdrant.similarity_search(query)
-    
+
     # for doc in found_docs:	
-	#     print(doc.page_content)
+    #     print(doc.page_content)
     # retriever = qdrant.as_retriever()
-    
+
     found_docs = retriever.invoke(query)
 
     formatted_docs_list = []
-    
+
     for doc in found_docs:	
-	    formatted_docs_list.append(doc.page_content)
+        formatted_docs_list.append(doc.page_content)
 
     formatted_docs = " ".join(formatted_docs_list)
-    
+
     print(formatted_docs)
 
     api_key = dotenv.get_key('../.env', key_to_get='GEMINI_API_KEY')
@@ -64,19 +64,19 @@ def search(query, file_name):
         model_name='gemini-1.5-flash-latest',
         generation_config=gen_config,
         system_instruction=f'''Use the following pieces of context to answer the question at the end.
-If you don't know the answer, just say that you don't know, don't try to make up an answer.
-Use three sentences maximum and keep the answer as concise as possible.
+    If you don't know the answer, just say that you don't know, don't try to make up an answer.
+    Use three sentences maximum and keep the answer as concise as possible.
 
-{formatted_docs}
+    {formatted_docs}
 
-Question: 
+    Question: 
 
-Helpful Answer:'''
+    Helpful Answer:'''
     )
 
     #Prompt
     response = model.generate_content(f'{query}')
-    
+
 
     return response.text
        
