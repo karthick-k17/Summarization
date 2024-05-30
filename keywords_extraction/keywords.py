@@ -131,6 +131,6 @@ def preprocessing():
     keywords = [result.keys()] 
 
     # print(get_top_n(tf_idf_score, 20))
-    print(keywords)
+    
     return keywords
 preprocessing()
