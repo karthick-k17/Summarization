@@ -6,7 +6,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 def summarize(file_path, prompt, keywords):
 
-    file_name = file_path.name
+    # file_name = file_path.name
 
     summarized_content = ""
     #Get API Key

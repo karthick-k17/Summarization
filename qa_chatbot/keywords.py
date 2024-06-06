@@ -22,10 +22,10 @@ from nltk.tokenize import word_tokenize
 
 nltk.download('punkt')
 
-def preprocessing():
+def preprocessing(pdf_path):
 
     doc = ""
-    pdf = PyPDF2.PdfReader("2024-dbir-data-breach-investigations-report.pdf")
+    pdf = PyPDF2.PdfReader(pdf_path)
     for i in pdf.pages:
         doc += i.extract_text()
 
@@ -128,9 +128,13 @@ def preprocessing():
         return result
 
     result = get_top_n(tf_idf_score,20)
-    keywords = [result.keys()] 
+    keywords = list(result.keys())
+    print(type(keywords))
 
     # print(get_top_n(tf_idf_score, 20))
     
     return keywords
-preprocessing()
+
+if __name__ == '__main__':
+    res = preprocessing()
+    print(res)
