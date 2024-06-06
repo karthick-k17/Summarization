@@ -30,7 +30,7 @@ if "summarized_content" not in st.session_state:
 if "messages" not in st.session_state:
     st.session_state["messages"] = []
  
-col1, col2 = st.columns([2,1])
+col1, col2 = st.columns([1,2])
 
 with st.sidebar:
     selected = option_menu(
@@ -44,7 +44,8 @@ if selected == "Summarizer":
         
     with col1:
         if st.session_state['uploaded_file_sum']:
-            st.write(f'Your file {st.session_state['uploaded_file_sum'].name} has been uploaded successfully!')
+            # st.write(f'Your file {st.session_state['uploaded_file_sum'].name} has been uploaded successfully!')
+            st.write(f'Your file has been uploaded successfully!')
             prompt = st.text_input('Enter the level of summarization required for the given file', key='prompt')
             keywords = st.text_input('Enter the key words that needs to given importance while summarizing', key='keywords')
             submit_button = False
@@ -68,10 +69,12 @@ elif selected == 'Chatbot':
             index=None
         )
     if st.session_state['uploaded_file_new_chat']:
-            st.write(f'Your file {st.session_state['uploaded_file_new_chat'].name} has been uploaded successfully!')
+            # st.write(f'Your file {st.session_state['uploaded_file_new_chat'].name} has been uploaded successfully!')
+            st.write(f'Your file has been uploaded successfully!')
             st.session_state["uploaded_file_name"] = st.session_state['uploaded_file_new_chat'].name
     elif st.session_state['uploaded_file_exist_chat']:
-        st.write(f'Your file {st.session_state['uploaded_file_exist_chat']} has been uploaded successfully!')
+        # st.write(f"Your file {st.session_state['uploaded_file_exist_chat']} has been uploaded successfully!")
+        st.write(f"Your file has been uploaded successfully!")
         st.session_state["uploaded_file_name"] = st.session_state['uploaded_file_exist_chat']
     user_input = st.chat_input("Enter your query")
     if user_input:

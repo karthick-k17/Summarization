@@ -9,3 +9,5 @@ qdrant_client
 google.generativeai
 PyPDF2
 python-dotenv
+nltk
+langchain
