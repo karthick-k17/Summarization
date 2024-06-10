@@ -5,6 +5,8 @@ from extract_data import create_embeddings
 from summarizer import summarize
 import chromadb
 from url_summarizer import url_summarize
+import requests
+from bs4 import BeautifulSoup
 
 import dotenv
 dotenv.load_dotenv()
@@ -33,6 +35,9 @@ if "messages" not in st.session_state:
 
 if "weburl" not in st.session_state:
     st.session_state["weburl"] = None
+
+if "url_chat" not in st.session_state:
+    st.session_state["url_chat"] = None
  
 col1, col2 = st.columns([1,2])
 
@@ -75,7 +80,7 @@ if selected == "Summarizer":
 
 elif selected == 'Chatbot':
     if not st.session_state["uploaded_file_new_chat"] and not st.session_state["uploaded_file_exist_chat"]:
-        st.write('You can either upload a new file or select an exisiting one:')
+        st.write('You can either upload a new file/URL or select an exisiting one:')
         st.session_state["uploaded_file_new_chat"] = st.file_uploader("Upload your file here")
         client = chromadb.PersistentClient(path="./chroma_db")
         created_files = [c.name for c in client.list_collections()]
@@ -84,20 +89,39 @@ elif selected == 'Chatbot':
             created_files, 
             index=None
         )
+        st.session_state["url_chat"] = st.text_input("Enter Webpage URL", type="default")
     if st.session_state['uploaded_file_new_chat']:
             # st.write(f'Your file {st.session_state['uploaded_file_new_chat'].name} has been uploaded successfully!')
             st.write(f'Your file has been uploaded successfully!')
             st.session_state["uploaded_file_name"] = st.session_state['uploaded_file_new_chat'].name
+            create_embeddings('file', st.session_state["uploaded_file_new_chat"])
+            
     elif st.session_state['uploaded_file_exist_chat']:
         # st.write(f"Your file {st.session_state['uploaded_file_exist_chat']} has been uploaded successfully!")
         st.write(f"Your file has been uploaded successfully!")
         st.session_state["uploaded_file_name"] = st.session_state['uploaded_file_exist_chat']
+
+    elif st.session_state["url_chat"]:
+        st.write(f"Your URL has been uploaded successfully!")
+        reqs = requests.get(st.session_state["url_chat"])
+ 
+        # using the BeautifulSoup module
+        soup = BeautifulSoup(reqs.text, 'html.parser')
+        
+        # displaying the title
+        print("Title of the website is : ")
+        for title in soup.find_all('title'):
+            file_name = title.get_text()
+            st.session_state['uploaded_file_name'] = file_name.replace('\n', '').replace('.', ' ').replace(' ', '').strip()
+            break
+
+        create_embeddings('url', st.session_state["url_chat"])
+
+    
+
     user_input = st.chat_input("Enter your query")
     if user_input:
         st.session_state["messages"].append({"role":"user", "content":user_input})
-
-        if st.session_state['uploaded_file_new_chat']:
-            create_embeddings(st.session_state["uploaded_file_new_chat"])
 
         response = search(user_input, st.session_state["uploaded_file_name"])
 
