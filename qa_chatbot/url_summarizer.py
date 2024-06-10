@@ -3,6 +3,7 @@ import dotenv
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import WebBaseLoader
 
+
 def url_summarize(weburl, prompt, keywords):
     
     summarized_content = ""
