@@ -4,6 +4,7 @@ from similarity_search import search
 from extract_data import create_embeddings
 from summarizer import summarize
 import chromadb
+from url_summarizer import url_summarize
 
 import dotenv
 dotenv.load_dotenv()
@@ -29,8 +30,11 @@ if "summarized_content" not in st.session_state:
 
 if "messages" not in st.session_state:
     st.session_state["messages"] = []
+
+if "weburl" not in st.session_state:
+    st.session_state["weburl"] = None
  
-col1, col2 = st.columns([2,1])
+col1, col2 = st.columns([1,2])
 
 with st.sidebar:
     selected = option_menu(
@@ -41,10 +45,14 @@ with st.sidebar:
 if selected == "Summarizer":
     if not st.session_state["uploaded_file_sum"]:
         st.session_state["uploaded_file_sum"] = st.file_uploader("Upload your file here")
+
+    if not st.session_state["weburl"]:
+        st.session_state["weburl"] =st.text_input("Enter Webpage URL", type="default")
         
     with col1:
         if st.session_state['uploaded_file_sum']:
-            st.write(f'Your file {st.session_state['uploaded_file_sum'].name} has been uploaded successfully!')
+            # st.write(f'Your file {st.session_state['uploaded_file_sum'].name} has been uploaded successfully!')
+            st.write(f'Your file has been uploaded successfully!')
             prompt = st.text_input('Enter the level of summarization required for the given file', key='prompt')
             keywords = st.text_input('Enter the key words that needs to given importance while summarizing', key='keywords')
             submit_button = False
@@ -53,6 +61,15 @@ if selected == "Summarizer":
             if submit_button:
                 st.session_state["summarized_content"] = summarize(st.session_state['uploaded_file_sum'], prompt, keywords)
             
+        if st.session_state['weburl']:
+            prompt = st.text_input('Enter the level of summarization required for the given file', key='prompt')
+            keywords = st.text_input('Enter the key words that needs to given importance while summarizing', key='keywords')
+            submit_button = False
+            if not submit_button:
+                submit_button = st.button("Submit", help="Click here to summarize")
+            if submit_button:
+                st.session_state["summarized_content"] = url_summarize(st.session_state['weburl'], prompt, keywords)
+        
         if st.session_state["summarized_content"] != None:
             st.write(st.session_state["summarized_content"])
 
@@ -68,10 +85,12 @@ elif selected == 'Chatbot':
             index=None
         )
     if st.session_state['uploaded_file_new_chat']:
-            st.write(f'Your file {st.session_state['uploaded_file_new_chat'].name} has been uploaded successfully!')
+            # st.write(f'Your file {st.session_state['uploaded_file_new_chat'].name} has been uploaded successfully!')
+            st.write(f'Your file has been uploaded successfully!')
             st.session_state["uploaded_file_name"] = st.session_state['uploaded_file_new_chat'].name
     elif st.session_state['uploaded_file_exist_chat']:
-        st.write(f'Your file {st.session_state['uploaded_file_exist_chat']} has been uploaded successfully!')
+        # st.write(f"Your file {st.session_state['uploaded_file_exist_chat']} has been uploaded successfully!")
+        st.write(f"Your file has been uploaded successfully!")
         st.session_state["uploaded_file_name"] = st.session_state['uploaded_file_exist_chat']
     user_input = st.chat_input("Enter your query")
     if user_input:
