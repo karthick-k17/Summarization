@@ -2,9 +2,24 @@ import PyPDF2
 import google.generativeai as genai
 from dotenv import get_key
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+from pathlib import Path
 
-def convertor(file_path, prompt, keywords):
-    # file_name = file_path.name
+# def convertor(file_path, prompt, keywords):
+def convertor(file_path):
+    file_name = file_path.name
+
+    my_file = Path(f"./converted_content/{file_name}.txt")
+    if my_file.is_file():
+        with open(f"./converted_content/{file_name}.txt", "r") as f:
+            converted_text = f.read()
+        return converted_text
+
+    pdf_file = PyPDF2.PdfReader(file_path)
+
+    extracted_text = ""
+
+    for i in pdf_file.pages:
+        extracted_text += i.extract_text()
 
     #Get API Key
     api_key = get_key('../.env', key_to_get='GEMINI_API_KEY')
@@ -17,13 +32,6 @@ def convertor(file_path, prompt, keywords):
         chunk_overlap=30,
         separators=['.','\n','\n\n']
     )
-
-    pdf_file = PyPDF2.PdfReader(file_path)
-
-    extracted_text = ""
-
-    for i in pdf_file.pages:
-        extracted_text += i.extract_text()
 
     #Defining model
     gen_config = genai.GenerationConfig(
@@ -55,28 +63,32 @@ def convertor(file_path, prompt, keywords):
     print('Processed text:')
     print(converted_text)
     
-    text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=100000, 
-        chunk_overlap=30,
-        separators=['.','\n','\n\n']
-    )
+    # text_splitter = RecursiveCharacterTextSplitter(
+    #     chunk_size=100000, 
+    #     chunk_overlap=30,
+    #     separators=['.','\n','\n\n']
+    # )
 
-    texts = text_splitter.split_text(converted_text)
+    # texts = text_splitter.split_text(converted_text)
 
-    summarized_content = ""
+    # summarized_content = ""
 
-    for text in texts:
-        response = model.generate_content(
-            f"""You are a cyber security expert and an expert summarizer. {prompt}. Make sure to include the text that contains the following keywords:
-            {keywords}
-            {text}"""
-        )
-        summarized_content += response.text
+    # for text in texts:
+    #     response = model.generate_content(
+    #         f"""You are a cyber security expert and an expert summarizer. {prompt}. Make sure to include the text that contains the following keywords:
+    #         {keywords}
+    #         {text}"""
+    #     )
+    #     summarized_content += response.text
 
-    return summarized_content
+    # return summarized_content
+    with open(f"./converted_content/{file_name}.txt", "w") as f:
+            f.write(converted_text)
+
+    return converted_text
 
 
 if __name__ == '__main__':
-    result = convertor('../files/first_chapter.pdf', 'Summarize the result to about 400 to 500 words.', 'threat, secure, AI')
+    result = convertor({'name':'2024-dbir-data-breach-investigations-report.pdf'})
     print('Summarized Result')
     print(result)

@@ -1,5 +1,7 @@
 .env
 
+qa_chatbot/converted_content/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

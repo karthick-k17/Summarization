@@ -7,8 +7,10 @@ import chromadb
 from url_summarizer import url_summarize
 import requests
 from bs4 import BeautifulSoup
-
+from compound_to_simple import convertor
 import dotenv
+
+
 dotenv.load_dotenv()
  
 st.set_page_config(layout='wide')
@@ -53,6 +55,12 @@ if selected == "Summarizer":
 
     if not st.session_state["weburl"]:
         st.session_state["weburl"] =st.text_input("Enter Webpage URL", type="default")
+
+    if st.session_state["uploaded_file_sum"] or st.session_state["weburl"]:
+        if st.session_state["uploaded_file_sum"]:
+            converted_text = convertor(st.session_state["uploaded_file_sum"])
+        else:
+            converted_text = convertor(st.session_state["uploaded_file_sum"])
         
     with col1:
         if st.session_state['uploaded_file_sum']:
@@ -64,7 +72,7 @@ if selected == "Summarizer":
             if not submit_button:
                 submit_button = st.button("Submit", help="Click here to summarize")
             if submit_button:
-                st.session_state["summarized_content"] = summarize(st.session_state['uploaded_file_sum'], prompt, keywords)
+                st.session_state["summarized_content"] = summarize(prompt, keywords, converted_text)
             
         if st.session_state['weburl']:
             prompt = st.text_input('Enter the level of summarization required for the given file', key='prompt')

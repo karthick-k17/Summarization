@@ -1,0 +1,74 @@
+Here are the simple sentences from the given text:
+
+**Introduction:**
+
+* Verizon's 2024 Data Breach Investigations Report (DBIR) is the 17th edition. 
+* The DBIR aims to highlight different types of attackers, their tactics, and their targets.
+* Contributors from around the world share their data and insights.
+* Verizon's Threat Research Advisory Center (VTRAC) team analyzes cybercrime trends globally.
+* Cyberattacks are constantly evolving, with both new and old techniques being used.
+* Attacks like the MOVEit zero-day vulnerability, ransomware, and denial-of-service (DoS) are common.
+* Human error and weak passwords contribute to cybersecurity challenges. 
+* The report analyzed 30,458 security incidents, including 10,626 data breaches.
+* The report covers incidents from November 1, 2022, to October 31, 2023.
+* The report has been updated with some changes in organization.
+
+**Helpful Guidance:**
+
+* The DBIR incident dataset includes incidents from November 1 of one year to October 31 of the next.
+* The report focuses on data from November 1, 2022, to October 31, 2023.
+* The report uses the entire dataset for trending graphs.
+* The report takes time to acquire, anonymize, analyze, and present the data. 
+
+**Credit:**
+
+* People often cite the DBIR report.
+* The report provides guidance on how to cite it correctly. 
+Here are the simplified sentences from the provided text:
+
+**Overall Trends:**
+
+*  Ransomware and other extortion techniques were involved in roughly one-third of all breaches. (Verizon 2024 Data Breach Investigations Report)
+*  Exploiting vulnerabilities was a critical path to initiating a breach, almost tripling (180% increase) from last year. (Verizon 2024 Data Breach Investigations Report)
+*  These attacks were primarily leveraged by Ransomware and other Extortion-related threat actors. (Verizon 2024 Data Breach Investigations Report)
+*  The main vector for these initial entry points was Web applications. (Verizon 2024 Data Breach Investigations Report)
+
+**Ransomware and Extortion:**
+
+*  Pure Extortion attacks have risen over the past year and now account for 9% of all breaches. (Verizon 2024 Data Breach Investigations Report)
+*  Traditional ransomware actors have shifted towards newer techniques, resulting in a slight decline in Ransomware to 23%. (Verizon 2024 Data Breach Investigations Report)
+*  Ransomware and Extortion combined represent a strong growth to 32% of breaches. (Verizon 2024 Data Breach Investigations Report)
+*  Ransomware was a top threat across 92% of industries. (Verizon 2024 Data Breach Investigations Report)
+
+**Human Element:**
+
+*  The human element was a component of 68% of breaches. (Verizon 2024 Data Breach Investigations Report)
+*  This is roughly the same as the previous period described in the 2023 DBIR. (Verizon 2024 Data Breach Investigations Report)
+
+**Third Party Involvement:**
+
+*  Breaches involving third parties, including partner infrastructure and software supply chain issues, have increased to 15%. (Verizon 2024 Data Breach Investigations Report)
+*  This represents a 68% increase from the previous year. (Verizon 2024 Data Breach Investigations Report)
+*  This increase is mostly fueled by the use of zero-day exploits for Ransomware and Extortion attacks. (Verizon 2024 Data Breach Investigations Report)
+
+**Errors:**
+
+*  Breaches involving Errors have increased to 28%. (Verizon 2024 Data Breach Investigations Report)
+*  This is due to broadening the contributor base to include several new mandatory breach notification entities. (Verizon 2024 Data Breach Investigations Report)
+*  Errors are likely more prevalent than traditional media or incident response-driven bias would suggest. (Verizon 2024 Data Breach Investigations Report)
+
+**Financially Motivated Threats:**
+
+*  Financially motivated threat actors typically stick to attack techniques that provide the highest return on investment. (Verizon 2024 Data Breach Investigations Report)
+*  Over the past three years, the combination of Ransomware and other Extortion breaches accounted for almost two-thirds (between 59% and 66%) of attacks. (Verizon 2024 Data Breach Investigations Report)
+
+**Remember:** You can find more detailed information and data about cybersecurity in the Verizon 2024 Data Breach Investigations Report. Please visit [verizon.com/dbir](https://www.verizon.com/about/responsibility/data-breach-investigations-report/) for access. 
+Here are the simple sentences summarizing the provided text:
+
+* The median loss from ransomware and extortion breaches is $46,000, ranging from $3 to $1,141,467 for 95% of cases.
+* The median ratio of requested ransom to company revenue is 1.34%, but it can range from 0.13% to 8.30% in 80% of cases.
+* Pretexting attacks, often resulting in Business Email Compromise (BEC), make up about 25% of financially motivated attacks. 
+* The median transaction amount for BEC is around $50,000.
+* Phishing attacks are becoming more common.
+* In security awareness exercises, 20% of users reported phishing attempts, and 11% of those who clicked the email also reported it. 
+* The average time for a user to click a malicious link is 21 seconds, and it takes an additional 28 seconds to enter their data, totaling less than 60 seconds. 
