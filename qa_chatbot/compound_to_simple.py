@@ -3,23 +3,40 @@ import google.generativeai as genai
 from dotenv import get_key
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from pathlib import Path
+from bs4 import BeautifulSoup
+import requests
 
 # def convertor(file_path, prompt, keywords):
-def convertor(file_path):
-    file_name = file_path.name
+def convertor(type, file_path, web_url):
+    if type == 'file':
+        file_name = file_path.name
 
-    my_file = Path(f"./converted_content/{file_name}.txt")
-    if my_file.is_file():
-        with open(f"./converted_content/{file_name}.txt", "r") as f:
-            converted_text = f.read()
-        return converted_text
+        my_file = Path(f"./converted_content/{file_name}.txt")
+        if my_file.is_file():
+            with open(f"./converted_content/{file_name}.txt", "r") as f:
+                converted_text = f.read()
+            return converted_text
 
-    pdf_file = PyPDF2.PdfReader(file_path)
+        pdf_file = PyPDF2.PdfReader(file_path)
 
-    extracted_text = ""
+        extracted_text = ""
 
-    for i in pdf_file.pages:
-        extracted_text += i.extract_text()
+        for i in pdf_file.pages:
+            extracted_text += i.extract_text()
+
+    elif type == 'url':
+        reqs = requests.get(web_url)
+ 
+        # using the BeautifulSoup module
+        soup = BeautifulSoup(reqs.text, 'html.parser')
+        print("Title of the website is : ", end="")
+        for title in soup.find_all('title'):
+            file_name = title.get_text()
+            file_name = file_name.replace('\n', '').replace('.', ' ').replace(' ', '').strip()
+            break
+        print(file_name)
+
+        
 
     #Get API Key
     api_key = get_key('../.env', key_to_get='GEMINI_API_KEY')

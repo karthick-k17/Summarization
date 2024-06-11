@@ -4,7 +4,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import WebBaseLoader
 
 
-def url_summarize(weburl, prompt, keywords):
+def url_summarize(prompt, keywords, converted_text):
     
     summarized_content = ""
     #Get API Key
@@ -18,12 +18,6 @@ def url_summarize(weburl, prompt, keywords):
         chunk_overlap=30,
         separators=['.','\n','\n\n']
     )
-    
-    #loading data from url 
-    loader = WebBaseLoader(f"{weburl}")
-    loader.requests_kwargs = {'verify':False}
-    temp = loader.load()
-    data = str(temp)
     #Defining model
     gen_config = genai.GenerationConfig(
         temperature=0.5,
@@ -33,7 +27,7 @@ def url_summarize(weburl, prompt, keywords):
         generation_config=gen_config
     )
 
-    texts = text_splitter.split_text(data)
+    texts = text_splitter.split_text(converted_text)
     for text in texts:
         response = model.generate_content(
             f"""You are a cyber security expert and an expert summarizer. {prompt}. Make sure to include the text that contains the following keywords:

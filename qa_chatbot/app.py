@@ -58,9 +58,9 @@ if selected == "Summarizer":
 
     if st.session_state["uploaded_file_sum"] or st.session_state["weburl"]:
         if st.session_state["uploaded_file_sum"]:
-            converted_text = convertor(st.session_state["uploaded_file_sum"])
+            converted_text = convertor('file', st.session_state["uploaded_file_sum"], None)
         else:
-            converted_text = convertor(st.session_state["uploaded_file_sum"])
+            converted_text = convertor('url', None, st.session_state["weburl"])
         
     with col1:
         if st.session_state['uploaded_file_sum']:
@@ -81,10 +81,10 @@ if selected == "Summarizer":
             if not submit_button:
                 submit_button = st.button("Submit", help="Click here to summarize")
             if submit_button:
-                st.session_state["summarized_content"] = url_summarize(st.session_state['weburl'], prompt, keywords)
+                st.session_state["summarized_content"] = url_summarize(prompt, keywords, converted_text)
         
-        if st.session_state["summarized_content"] != None:
-            st.write(st.session_state["summarized_content"])
+    if st.session_state["summarized_content"] != None:
+        st.write(st.session_state["summarized_content"])
 
 elif selected == 'Chatbot':
     if not st.session_state["uploaded_file_new_chat"] and not st.session_state["uploaded_file_exist_chat"]:
