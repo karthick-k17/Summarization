@@ -1,4 +1,6 @@
 chroma_db/
+faiss_db
+faiss_index
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
