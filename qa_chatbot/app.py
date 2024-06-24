@@ -6,7 +6,7 @@ from summarizer import summarize
 import chromadb
 from url_summarizer import url_summarize
 import requests
-from bs4 import BeautifulSoup
+import BeautifulSoup
 from compound_to_simple import convertor
 import dotenv
 
